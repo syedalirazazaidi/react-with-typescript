@@ -13,3 +13,7 @@ npm install styled-components
 ## Prop Type For type-checking
 
 npm i prop-types
+
+## Prop Type For type-checking
+
+npm i dotenv

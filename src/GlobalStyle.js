@@ -29,6 +29,7 @@ export const GlobalStyle = createGlobalStyle`
       font-size: 1.1rem;
       font-weight: 600;
     }
+  
     p {
       font-size: 1rem;
       color: var(--white);
