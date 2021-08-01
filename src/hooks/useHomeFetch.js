@@ -28,7 +28,7 @@ export const useHomeFetch = () => {
     setLoading(false);
   };
   useEffect(() => {
-    fetchMovies();
-  }, []);
-  return { state, loading, error, setSearchTerm };
+    fetchMovies(1, searchTerm);
+  }, [searchTerm]);
+  return { state, loading, error, setSearchTerm, searchTerm };
 };
