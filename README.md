@@ -17,3 +17,8 @@ npm i prop-types
 ## Prop Type For type-checking
 
 npm i dotenv
+
+## For unique id
+
+npm install shortid --save
+

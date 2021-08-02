@@ -3,15 +3,17 @@ import { POSTER_SIZE, BACKDROP_SIZE, IMAGE_BASE_URL } from "../config";
 import { useHomeFetch } from "../hooks/useHomeFetch";
 import NoImage from "../images/no_image.jpg";
 import HeroImage from "./HeroImage/index";
-
+import shortid from "shortid";
 import Grid from "./Grid/index";
 import Thumb from "./Thumb";
 import Spinner from "./Spinner";
 import SearchBar from "./SearchBar";
 import Button from "./Button";
 const Home = () => {
-  const { state, loading, error, setSearchTerm, searchTerm } = useHomeFetch();
-
+  const { state, loading, error, setIsLoadingMore, setSearchTerm, searchTerm } =
+    useHomeFetch();
+  if (error) return <div>Something went wrong</div>;
+  console.log(state, "popop");
   return (
     <>
       {!searchTerm && state.results[0] ? (
@@ -26,7 +28,7 @@ const Home = () => {
       <Grid header={searchTerm ? "Search Result" : "Popular Movies"}>
         {state.results?.map((movie) => (
           <Thumb
-            key={movie.id}
+            key={shortid.generate()}
             clickable
             image={
               movie.poster_path
@@ -36,12 +38,12 @@ const Home = () => {
             movieId={movie.id}
           />
         ))}
-        {loading && <Spinner />}
-
-        {state.page < state.total_pages && !loading && (
-          <Button text="Load More" />
-        )}
       </Grid>
+      {loading && <Spinner />}
+
+      {state.page < state.total_pages && !loading && (
+        <Button text="Load More" callback={() => setIsLoadingMore(true)} />
+      )}
     </>
   );
 };
