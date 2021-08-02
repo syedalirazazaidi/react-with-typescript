@@ -13,7 +13,7 @@ const Home = () => {
   const { state, loading, error, setIsLoadingMore, setSearchTerm, searchTerm } =
     useHomeFetch();
   if (error) return <div>Something went wrong</div>;
-  console.log(state, "popop");
+
   return (
     <>
       {!searchTerm && state.results[0] ? (
@@ -40,7 +40,6 @@ const Home = () => {
         ))}
       </Grid>
       {loading && <Spinner />}
-
       {state.page < state.total_pages && !loading && (
         <Button text="Load More" callback={() => setIsLoadingMore(true)} />
       )}
