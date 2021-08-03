@@ -1,6 +1,6 @@
 import React from "react";
 // Styles
-import { Wrapper, Content } from "./Grid.styles";
+import { Wrapper, Content } from "./Grid.Style";
 import PropTypes from "prop-types";
 
 const Grid = ({ header, children }) => (
