@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+// redirects /* /index.html 200
 import { POSTER_SIZE, BACKDROP_SIZE, IMAGE_BASE_URL } from "../config";
 import { useHomeFetch } from "../hooks/useHomeFetch";
 import NoImage from "../images/no_image.jpg";
